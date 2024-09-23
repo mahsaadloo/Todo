@@ -7,12 +7,12 @@ import DateTodo from "./DateTodo";
 const TodoCard = (props: TodoProps) => {
   const [title, setTitle] = useState(props.title);
 
-  const editHandler = () => {
+  const UpdateHandler = () => {
     setTitle("updated");
   };
   return (
     <div>
-      <div className="border border-pink-600 shadow rounded-xl max-w-2xl mx-auto bg-pink-200 px-5 py-3">
+      <div className="border border-pink-600 shadow rounded-xl max-w-2xl mx-auto mb-3 bg-pink-200 px-5 py-3">
         <div className="sm:flex justify-between items-center">
           <div className="sm:flex gap-10 items-center">
             <div>
@@ -22,7 +22,7 @@ const TodoCard = (props: TodoProps) => {
           </div>
           <div className="flex gap-3 text-slate-100 font-bold">
             <button
-              onClick={editHandler}
+              onClick={UpdateHandler}
               className="bg-pink-600 p-2 rounded-xl hover:bg-pink-800 focus:ring-4 focus:outline-none focus:ring-pink-300 dark:bg-pink-600 dark:hover:bg-pink-700 dark:focus:ring-pink-800"
             >
               Edit
