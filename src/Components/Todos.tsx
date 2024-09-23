@@ -1,16 +1,32 @@
-import React from "react";
-import TodoCard from "./TodoCard";
-import { ItemsTodos } from "@/Types";
+import React, { useState } from "react";
+import FilterTodos from "./FilterTodos";
+import TodoList from "./TodoList";
 
-const Todos = (props: ItemsTodos) => {
+const Todos = (props: any) => {
+  const [filteredMonth, setFilteredMonth] = useState("choose");
+
+  const filterChangeHandler = (selectedMonth: any) => {
+    setFilteredMonth(selectedMonth);
+  };
+
+  const filteredTodos = props.item.filter((todo: any) => {
+    // Show all todos
+    if (filteredMonth === "choose") {
+      return true;
+    }
+    return (
+      todo.date.toLocaleDateString("en-US", { month: "long" }) === filteredMonth
+    );
+  });
+
   return (
-    <div className="bg-pink-100 border-pink-100 rounded-lg shadow flex flex-col gap-3 max-w-3xl  mx-auto sm:p-10">
-      <TodoCard title={props.items[0].title} date={props.items[0].date} />
-      <TodoCard title={props.items[1].title} date={props.items[1].date} />
-      <TodoCard title={props.items[2].title} date={props.items[2].date} />
-      <TodoCard title={props.items[3].title} date={props.items[3].date} />
-      <TodoCard title={props.items[4].title} date={props.items[4].date} />
-    </div>
+    <li className="list-none">
+      <FilterTodos
+        selected={filteredMonth}
+        onChangeFilter={filterChangeHandler}
+      />
+      <TodoList items={filteredTodos} />
+    </li>
   );
 };
 

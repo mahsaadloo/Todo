@@ -4,6 +4,7 @@ export interface DateTodoProps {
 
 export interface TodoProps extends DateTodoProps {
   title: string;
+  id?: string;
 }
 
 export interface ItemsTodos {
