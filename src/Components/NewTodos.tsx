@@ -9,7 +9,7 @@ const NewTodos = (props: any) => {
     const inputsData = {
       ...enteredInputs,
       id: Math.random().toString(),
-      date: new Date(enteredInputs.date)
+      // date: new Date(enteredInputs.date)
     };
     console.log(inputsData);
 
