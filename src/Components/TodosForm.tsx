@@ -32,7 +32,7 @@ const TodosForm = (props: any) => {
 
     const inputsData = {
       title: userInput.enteredTitle,
-      date: userInput.enteredDate,
+      date: new Date(userInput.enteredDate),
     };
 
     // lifting up data
